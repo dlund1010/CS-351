@@ -46,20 +46,20 @@ The hash programs each computer 1,000,000 hashes. The programs are:
 
 1. What operation do you think accounts for most of `hash-00`'s runtime?
 
-I think it's likely that reading the data is the operation that takes longest for `hash-00`, since it's using the stream extraction operator (`>>`), and reading from the `Data.txt` file rather than `Data.bin`. The reason the programs reading from `Data.bin` are so much faster is that they use the `read` operator. `>>` has logic to worry about datatypes or formatting while `read` considers all data to just be a collection of bytes and type conversion can be done afterwards.
+   I think it's likely that reading the data is the operation that takes longest for `hash-00`, since it's using the stream extraction operator (`>>`), and reading from the `Data.txt` file rather than `Data.bin`. The reason the programs reading from `Data.bin` are so much faster is that they use the `read` operator. `>>` has logic to worry about datatypes or formatting while `read` considers all data to just be a collection of bytes and type conversion can be done afterwards.
 
 2. `hash-01` and `hash-02` both dynamically allocate memory for each hash computation. Is there much difference time-wise between their two allocation methods?
 
-With no optimization hash-02 appears slightly faster than `hash-01` (by 2.07s). With `-O1` `hash-02` is only 0.11s faster. With `-02`
+   With no optimization hash-02 appears slightly faster than `hash-01` (by 2.07s). With `-O1` `hash-02` is only 0.11s faster. With `-02`
 
 3. `hash-03` avoids the allocation by using a fixed-size array. Is there an appreciable speed difference?
 
-In general while `hash-03` is significantly faster than `hash-00` its speed appears similar to `hash-02` and `hash-01`. The largest difference is with `-O2` optimization, where it ran in 8.11s in comparison to `hash-01` which ran in 8.32s and `hash-02` which ran in 8.32s. It seems there's not really an appreciable speed difference.
+   In general while `hash-03` is significantly faster than `hash-00` its speed appears similar to `hash-02` and `hash-01`. The largest difference is with `-O2` optimization, where it ran in 8.11s in comparison to `hash-01` which ran in 8.32s and `hash-02` which ran in 8.32s. It seems there's not really an appreciable speed difference.
 
 4. Why is `hash-04`'s memory usage so much larger than any of the other versions? Hint: recall when we discussed how the operating system reads a file and makes it available to an application. Specifically, the O/S will transfer data from disk to its own memory, and then copy from there into buffers provided by the application. In the memory map case, the O/S is merely sharing the copy of the file's data that is in its (the O/S's) memory, and not making an additional copy from its memory into memory only in the application
 
-Since `hash-04` is using a memory map, it has to allocate room for the whole binary file. The size of `Data.bin` is about 5009162 KB. On average across the 4 different optimization levels, `hash-04` used 5012208 KB, so subtracting the size of `Data.bin` would mean each allocated about 3046 KB, which is just slightly more than what the other programs allocated.
+   Since `hash-04` is using a memory map, it has to allocate room for the whole binary file. The size of `Data.bin` is about 5009162 KB. On average across the 4 different optimization levels, `hash-04` used 5012208 KB, so subtracting the size of `Data.bin` would mean each allocated about 3046 KB, which is just slightly more than what the other programs allocated.
 
 5. What other compiler options did you try, and did they help at all?
 
-I tried `-O1`, and `-O3`. Using `-O1` resulted in the fastest (real time) performance for `hash-00`, `hash-01`, `hash-02`, and `hash-03`, but not `hash-04`. Using `-O3` was generally faster than results with `-O0` but slower than `-O1` for all but `hash-04`.
+   I tried `-O1`, and `-O3`. Using `-O1` resulted in the fastest (real time) performance for `hash-00`, `hash-01`, `hash-02`, and `hash-03`, but not `hash-04`. Using `-O3` was generally faster than results with `-O0` but slower than `-O1` for all but `hash-04`.
