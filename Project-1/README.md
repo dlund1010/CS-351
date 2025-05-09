@@ -58,7 +58,7 @@ The hash programs each computer 1,000,000 hashes. The programs are:
 
 4. Why is `hash-04`'s memory usage so much larger than any of the other versions? Hint: recall when we discussed how the operating system reads a file and makes it available to an application. Specifically, the O/S will transfer data from disk to its own memory, and then copy from there into buffers provided by the application. In the memory map case, the O/S is merely sharing the copy of the file's data that is in its (the O/S's) memory, and not making an additional copy from its memory into memory only in the application
 
-   Since `hash-04` is using a memory map, it has to allocate room for the whole binary file. The size of `Data.bin` is about 5009162 KB. On average across the 4 different optimization levels, `hash-04` used 5012208 KB, so subtracting the size of `Data.bin` would mean each allocated about 3046 KB, which is just slightly more than what the other programs allocated.
+   Since `hash-04` is using a memory map, it has to allocate room for the whole binary file. The size of `Data.bin` is about 5009162 KB. On average across the 4 different optimization levels, `hash-04` used 5012208 KB, so subtracting the size of `Data.bin` would mean each run allocated about 3046 KB, which is just slightly more than what the other programs allocated.
 
 5. What other compiler options did you try, and did they help at all?
 
