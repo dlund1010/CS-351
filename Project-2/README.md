@@ -27,6 +27,7 @@ It's clear that more threads aren't necessarily better. There seems to be a limi
 Using Ahmdahl's law the expected speed-up for 16 threads should be:
 
 $$ speedup = \frac{1}{1 - p + \frac{p}{n}} = 15.01$$
+
 (Where $p = 0.9956$ and $n = 16$).
 
 The slope of the speed-up at the roughly linear section of at the beginning of the graph is 0.63. The linear trend decreases as we add more threads. The curve "flattens out" since each additional thread affects the total speed up much less.
