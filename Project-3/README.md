@@ -6,10 +6,9 @@
 
 [Simple spinning star](spinningStar.html)
 
-[![Red five point star with white centeron dark gray background](starRed.png)]
-[![Magenta five point star with white centeron dark gray background](starMagenta.png)]
-[![Blue five point star with white centeron dark gray background](starBlue.png)]
-[![Green five point star with white centeron dark gray background](starGreen.png)]
-[![Yellow five point star with white centeron dark gray background](starYellow.png)]
-
 [Rainbow color-shifting spinning star](rainbowStar.html)
+![Red five point star with white centeron dark gray background](starRed.png)
+![Magenta five point star with white centeron dark gray background](starMagenta.png)
+![Blue five point star with white centeron dark gray background](starBlue.png)
+![Green five point star with white centeron dark gray background](starGreen.png)
+![Yellow five point star with white centeron dark gray background](starYellow.png)
